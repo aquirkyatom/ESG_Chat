@@ -4,7 +4,23 @@ Chatbot for APAI 4011
 Current plans, **gen by AI** a RAG model
 
 ## Data ##
-* Frameworks: Frameworks from https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/External-References/ESG-Frameworks?sc_lang=en
+ Frameworks: Frameworks from https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/External-References/ESG-Frameworks?sc_lang=en
+*     GRI 2023 framework
+*     SASB Technology & Communications -> Software & IT Services:
+           ** Financials -> Commercial Banks
+                        ** Health Care -> Biotechnology & Pharmaceuticals
+                         ** Extractives & Minerals Processing -> Oil & Gas – Exploration & Production
+                 ** Food & Beverage -> Agricultural Products
+            **  Infrastructure -> Electric Utilities & Power Generators
+           ** Consumer Goods -> Multiline and Specialty Retailers & Distributors
+           **  Transportation -> Automobiles
+
+* TCFD 2017 report https://assets.bbhub.io/company/sites/60/2021/10/FINAL-2017-TCFD-Report.pdf
+* SDG report https://unstats.un.org/sdgs/report/2025/The-Sustainable-Development-Goals-Report-2025.pdf
+* ISSB report https://www.ifrs.org/content/dam/ifrs/publications/pdf-standards-issb/english/2023/issued/part-a/issb-2023-a-ifrs-s1-general-requirements-for-disclosure-of-sustainability-related-financial-information.pdf?bypass=on https://www.ifrs.org/content/dam/ifrs/publications/pdf-standards-issb/english/2023/issued/part-a/issb-2023-a-ifrs-s2-climate-related-disclosures.pdf?bypass=on
+kaggle datasets
+
+  
 
 
 
