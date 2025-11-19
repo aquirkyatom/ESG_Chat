@@ -1,0 +1,24 @@
+# --- Python Virtual Environment ---
+# Never share your local environment folder.
+venv/
+.venv/
+
+# --- DATA & DATABASES ---
+# These folders are too large for Git and should be shared via cloud storage.
+# This will ignore the entire 'data' folder and the 'chroma_db' folder.
+data/
+chroma_db/
+
+# --- SECRETS ---
+# Never, ever commit your API keys or secrets to GitHub.
+.env
+
+# --- Python Cache Files ---
+# These are temporary files Python generates.
+__pycache__/
+*.pyc
+
+# --- IDE / Editor specific files ---
+# These are local configuration files for your editor.
+.vscode/
+.idea/
