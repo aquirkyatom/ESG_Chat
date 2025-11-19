@@ -3,6 +3,8 @@ Chatbot for APAI 4011
 
 Current plans, **gen by AI** a RAG model
 
+data folders please see dropbox
+
 ## Data ##
  Frameworks: Frameworks from https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/External-References/ESG-Frameworks?sc_lang=en
 *     GRI 2023 framework
