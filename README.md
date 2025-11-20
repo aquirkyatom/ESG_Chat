@@ -5,6 +5,8 @@ Current plans, **gen by AI** a RAG model
 
 data folders please see dropbox
 
+I have built a python code to store the data, so my plan now is to build from a existing chatbot model, than we use train our own functions/code for machine learning, than use rag to call those functions when required to make a bot
+
 ## Data ##
  Frameworks: Frameworks from https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/External-References/ESG-Frameworks?sc_lang=en
 *     GRI 2023 framework
