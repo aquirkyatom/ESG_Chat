@@ -16,6 +16,9 @@ use requirements.txt to see the libraries required
 if spacy text splitter doesnt work please use
 *      python -m spacy download en_core_web_lg
 
+this bot uses the llama model
+download ollama as an application, sign in so you can run this code on llama
+
 ## Data ##
  Frameworks: Frameworks from https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/External-References/ESG-Frameworks?sc_lang=en
 *     GRI 2023 framework
