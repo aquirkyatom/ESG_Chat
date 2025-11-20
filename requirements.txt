@@ -2,8 +2,9 @@ sentence-transformers
 ollama
 langchain_community
 langchain_text_splitters
-langchain_openai
+langchain_openai ## not needed if using ollama
 langchain_chroma
+langchain_huggingface
 gradio
 python-dotenv
 pypdf

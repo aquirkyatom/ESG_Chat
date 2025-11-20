@@ -1,4 +1,4 @@
-from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
@@ -25,7 +25,7 @@ print(f"Vector DB path:      {CHROMA_PATH}")
 
 # Initiate  model 
 print("\nLoading local embedding model...")
-embeddings_model = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 print("Embedding model loaded.")
 
 # Initiate  vector store 
