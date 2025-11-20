@@ -1,5 +1,5 @@
 # --- IMPORTS FOR LOCAL MODELS ---
-from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_ollama import ChatOllama
 # --------------------------------
 
@@ -16,7 +16,7 @@ CHROMA_PATH = r"chroma_db"
 # Load the LOCAL embedding model ---
 
 print("Loading local embedding model...")
-embeddings_model = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 print("Embedding model loaded.")
 
 # --- 2. Initiate the LOCAL, open-source LLM via Ollama ---
@@ -60,19 +60,19 @@ def stream_response(message, history):
 
         # This is a good, standard prompt for a RAG system.
         rag_prompt = f"""
-        You are **Eco‑Sage**, an expert ESG (Environmental, Social, Governance) assistant.
+        You are **Eco‑SaGe**, an expert ESG (Environmental, Social, Governance) assistant.
         Your job is to provide clear, concise, and factual answers to user questions about ESG policies,
-        standards, metrics, best‑practice recommendations, and related sustainability topics.
+        standards, metrics, best‑practice recommendations, and related sustainability topics using knowledge based retrieval.
 
         Compare the user's question to the provided knowledge base, and determine if the answer can be found there.
-        Use the knowledge base to inform your answers whenever the answer is sensible compared to your internal knowledge.
+        If it can be, provide a clear, concise, and factual answer from the knowledge base.
 
         When you answer **using a knowledge base** (see the “--- Knowledge Base ---” section below),
         ‑ cite the source by writing **[Document X]** after each sentence that comes from that document,
         where X is the 1‑based index of the retrieved chunk.
         ‑ Never hallucinate facts that are not present in the supplied knowledge.
         - you can combine information from multiple documents to form a complete answer.
-        - rank the relevance of the retrieved documents by comparing them to the internal knowledge, but do not invent new facts.
+        - you can compare knowledge base information to the internal knowledge for better representation, but do not invent new facts.
         ‑ If the knowledge base does **not** contain enough information, say *“I’m not sure based on the provided documents.”* and then (optionally) answer from your own training data, clearly stating that you are relying on your internal knowledge.
 
         When you answer **without a knowledge base** (fallback mode), keep the same tone,
