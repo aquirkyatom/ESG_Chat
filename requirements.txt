@@ -5,6 +5,10 @@ langchain_text_splitters
 langchain_openai ## not needed if using ollama
 langchain_chroma
 langchain_huggingface
+langchain-ollama
 gradio
 python-dotenv
 pypdf
+gradio_client
+spacy
+en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl

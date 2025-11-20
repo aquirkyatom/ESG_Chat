@@ -11,6 +11,11 @@ use requirements.txt to see the libraries required
 
 *      pip install -r requirements.txt
 
+
+
+if spacy text splitter doesnt work please use
+*      python -m spacy download en_core_web_lg
+
 ## Data ##
  Frameworks: Frameworks from https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/External-References/ESG-Frameworks?sc_lang=en
 *     GRI 2023 framework

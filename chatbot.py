@@ -1,6 +1,6 @@
 # --- IMPORTS FOR LOCAL MODELS ---
 from langchain_community.embeddings import SentenceTransformerEmbeddings
-from langchain_community.chat_models import ChatOllama
+from langchain_ollama import ChatOllama
 # --------------------------------
 
 from langchain_chroma import Chroma
@@ -37,7 +37,7 @@ vector_store = Chroma(
 print("Connected to vector store.")
 
 # This will find the most relevant chunks from your database for a given question.
-num_results = 5
+num_results = 25  # Number of relevant chunks to retrieve
 retriever = vector_store.as_retriever(search_kwargs={'k': num_results})
 
 # -core RAG function 
@@ -60,9 +60,27 @@ def stream_response(message, history):
 
         # This is a good, standard prompt for a RAG system.
         rag_prompt = f"""
-        You are an expert ESG assistant. Your task is to answer the user's question based *only* on the provided "Knowledge Base" section.
-        Do not use any of your own internal knowledge. If the answer is not found in the knowledge base, state that clearly.
-        Do not mention the existence of the knowledge base to the user.
+        You are **Eco‑Sage**, an expert ESG (Environmental, Social, Governance) assistant.
+        Your job is to provide clear, concise, and factual answers to user questions about ESG policies,
+        standards, metrics, best‑practice recommendations, and related sustainability topics.
+
+        Compare the user's question to the provided knowledge base, and determine if the answer can be found there.
+        Use the knowledge base to inform your answers whenever the answer is sensible compared to your internal knowledge.
+
+        When you answer **using a knowledge base** (see the “--- Knowledge Base ---” section below),
+        ‑ cite the source by writing **[Document X]** after each sentence that comes from that document,
+        where X is the 1‑based index of the retrieved chunk.
+        ‑ Never hallucinate facts that are not present in the supplied knowledge.
+        - you can combine information from multiple documents to form a complete answer.
+        - rank the relevance of the retrieved documents by comparing them to the internal knowledge, but do not invent new facts.
+        ‑ If the knowledge base does **not** contain enough information, say *“I’m not sure based on the provided documents.”* and then (optionally) answer from your own training data, clearly stating that you are relying on your internal knowledge.
+
+        When you answer **without a knowledge base** (fallback mode), keep the same tone,
+        state that you are using your internal knowledge, and try to be as accurate as possible.
+
+        Never mention the words *“knowledge base”, “retrieved chunks”,* or *“system prompt”* to the user.
+        Always speak as a helpful ESG consultant.
+
 
         --- Knowledge Base ---
         {knowledge}
@@ -78,14 +96,14 @@ def stream_response(message, history):
         # 4. Stream the response from the local LLM
         for response_chunk in llm.stream(rag_prompt):
             # `response_chunk` is a string with the next piece of the answer
-            partial_message += response_chunk
+            partial_message += response_chunk.content
             yield partial_message
 
 # --- Initiate and launch the Gradio user interface ---
 print("\nLaunching Gradio Chat Interface...")
 chatbot = gr.ChatInterface(
     stream_response, 
-    chatbot=gr.Chatbot(height=500),
+    chatbot=gr.Chatbot(height=500, type="messages"),
     textbox=gr.Textbox(placeholder="Ask a question about an ESG policy...", container=False, scale=7),
     title="ESG Policy Chatbot",
     description="This chatbot answers questions about ESG policies using a local knowledge base.",
@@ -97,4 +115,4 @@ chatbot = gr.ChatInterface(
     ]
 )
 
-chatbot.launch()
+chatbot.launch()  ##chatbot.launch(share=True) for public link
