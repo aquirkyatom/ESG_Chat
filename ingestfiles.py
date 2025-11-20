@@ -7,17 +7,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# ==============================================================================
-#                      START: CONFIGURATION
-# ==============================================================================
 
-# --- THE CRITICAL CHANGE: Define a LIST of folders to process ---
-# Now you can add as many specific folders as you want.
-# The script will process all of them.
+
+print("\n--- Starting Data Ingestion Script ---, from folders data/esg reports sp500, data/esg reports non sp500 and data/frameworks so rename your folders accordingly if needed.")
+#  specific folders 
 DATA_FOLDERS = [
-    r"data/data/frameworks",
-    r"data/data/esg reports sp500",
-    r"data/data/esg reports non sp500",
+    r"data/frameworks",
+    r"data/esg reports sp500",
+    r"data/esg reports non sp500",
 ]
 CHROMA_PATH = r"chroma_db"
 
@@ -26,21 +23,17 @@ print(f"Target data folders: {DATA_FOLDERS}")
 print(f"Vector DB path:      {CHROMA_PATH}")
 
 
-# --- Initiate the local, open-source embeddings model ---
+# Initiate  model 
 print("\nLoading local embedding model...")
 embeddings_model = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
 print("Embedding model loaded.")
 
-# --- Initiate the vector store ---
+# Initiate  vector store 
 vector_store = Chroma(
     collection_name="esg_collection",
     embedding_function=embeddings_model,
     persist_directory=CHROMA_PATH,
 )
-
-# ==============================================================================
-#          START: MODIFIED PDF LOADING LOGIC
-# ==============================================================================
 
 # --- Loop through each specified folder and load the documents ---
 print(f"\nLoading PDF documents from specified folders...")
@@ -54,10 +47,6 @@ for folder_path in DATA_FOLDERS:
     print(f"     Loaded {len(documents_from_folder)} pages.")
 
 print(f"\nTotal pages loaded from all folders: {len(all_raw_documents)}")
-
-# ==============================================================================
-#          END: MODIFIED PDF LOADING LOGIC
-# ==============================================================================
 
 
 # --- Splitting the documents into chunks ---

@@ -1,0 +1,9 @@
+sentence-transformers
+ollama
+langchain_community
+langchain_text_splitters
+langchain_openai
+langchain_chroma
+gradio
+python-dotenv
+pypdf
