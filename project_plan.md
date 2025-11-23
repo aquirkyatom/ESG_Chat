@@ -1,3 +1,26 @@
+
+
+1. Integrate NLP learning functions in  into the RAG in for calling
+2. Add more files into data (from 3 companies to 100 companies from sp500)
+3. add sector data from  to RAG in chatbotv2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ESG Chatbot Project Plan & Workload Distribution
 
 ## 1. Project Overview
