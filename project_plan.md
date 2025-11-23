@@ -1,6 +1,34 @@
 
 
-1. Integrate NLP learning functions in  into the RAG in for calling
+
+
+(1) Use text analysis model(s) to find out the keywords of ESG
+products/services/issues (e.g. pollution, energy consumption, etc.), performance
+measurement metrics of ESG (e.g. energy management, waste management,
+…) from ESG annual reports and related social media and websites dataset.
+
+
+(2) Use classification model(s) to classify topics discussed in ESG
+products/services/issues (e.g. corporate climate policies, energy use, etc.) from
+ESG annual reports and related social media and websites dataset.
+
+(5) Use prediction model(s) to predict the ESG score of a company/industry (more
+ESG. product/services/issues with higher ESG score) based on ESG annual
+reports and related social media and websites dataset.  
+
+
+
+
+(6) ** Develop an integrated model to combine the above analysis to provide
+dashboard and recommendation ** in a Chatbot on the high potential growth ESG
+company/industry (more ESG. product/services/issues with higher ESG score)
+based on ESG annual reports and related social media and websites dataset.
+
+
+
+
+
+1. Integrate NLP learning functions in  into the RAG in for calling (6)
 2. Add more files into data (from 3 companies to 100 companies from sp500)
 3. add sector data from  to RAG in chatbotv2
 
