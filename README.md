@@ -3,15 +3,11 @@ Chatbot for APAI 4011
 
 Current plans, **gen by AI** a RAG model
 
-data folders please see dropbox
-
 I have built a python code to store the data, so my plan now is to build from a existing chatbot model, than we use train our own functions/code for machine learning, than use rag to call those functions when required to make a bot
 
 use requirements.txt to see the libraries required
 
 *      pip install -r requirements.txt
-
-
 
 if spacy text splitter doesnt work please use
 *      python -m spacy download en_core_web_lg
@@ -19,6 +15,26 @@ if spacy text splitter doesnt work please use
 this bot uses the llama model
 download ollama as an application, sign in so you can run this code on llama
 
+
+# Important files
+*  ingestfiles.py
+*  chatbot and chatbotv2.py
+
+if you have new data, (framework/esg reports), run ingestfiles.py once to convert all into chromaDB vectors
+run chatbot and chatbotv2 in your terminal to launch the app
+
+*  score_predictions_py.py
+
+Function of ESG score predictions
+
+*  esg_analysis_code.ipynb and esg-risk-analysis-insights-from-s-p-500-companies.ipynb
+
+  code analysis from kaggle set
+
+
+
+
+ 
 ## Data ##
  Frameworks: Frameworks from https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/External-References/ESG-Frameworks?sc_lang=en
 *     GRI 2023 framework
@@ -57,7 +73,7 @@ kaggle datasets
 
 
 
-
+# Below is some AI ideas (Skip this)
 
 
 
