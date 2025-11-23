@@ -6,12 +6,12 @@ venv/
 # --- DATA & DATABASES ---
 # These folders are too large for Git and should be shared via cloud storage.
 # This will ignore the entire 'data' folder and the 'chroma_db' folder.
-data/
-chroma_db/
+#data/
+#chroma_db/
 
 # --- SECRETS ---
 # Never, ever commit your API keys or secrets to GitHub.
-.env
+#.env
 
 # --- Python Cache Files ---
 # These are temporary files Python generates.
