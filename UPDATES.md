@@ -27,8 +27,6 @@ This file acts as the **Logic Adapter**, bridging the gap between unstructured t
 *   **Synthetic Data Expansion (The "Translator"):**
     *   **Problem Solved:** The XGBoost model was trained on long, formal reports, but users type short sentences (e.g., "We use coal").
     *   **Solution:** It uses an internal LLM instance to **expand** short user inputs into formal, report-style paragraphs *before* sending them to the XGBoost model. This ensures the math remains accurate even for short inputs.
-*   **Data Aggregation (Company Analysis):**
-    *   When analyzing a company, it takes multiple text chunks retrieved by RAG, predicts a score for *each* chunk, and calculates the **mathematical average**. This creates a consensus score based on all available evidence.
 *   **Standardized Output:**
     *   Converts raw Numpy arrays into a formatted string (`--- 🤖 AI RISK MODEL ANALYSIS ---`) that the `Chatbotv3.py` prompts are trained to recognize and parse.
 
@@ -43,4 +41,3 @@ added a `clean_document_content` function and inserted a **Pre-processing Step**
 1.  **Table of Contents Removal:** Uses Regex to detect lines that end in dots and numbers (e.g., `Environment ......... 15`).
 2.  **Page Number Removal:** Removes lines that are just digits.
 3.  **Header/Footer Noise:** Removes lines containing specific keywords like "Table of Contents" or "Index".
-4.  **Artifact Removal:** Removes extremely short lines (less than 4 characters) which are often PDF scanning artifacts.
