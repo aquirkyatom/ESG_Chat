@@ -1,3 +1,5 @@
+
+
 # ESG_Chat
 Chatbot for APAI 4011
 
@@ -14,6 +16,8 @@ if spacy text splitter doesnt work please use
 
 this bot uses the llama model
 download ollama as an application, sign in so you can run this code on llama
+
+# Read UPDATE.md to see new updates
 
 
 # Important files

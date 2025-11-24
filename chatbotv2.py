@@ -248,7 +248,7 @@ chatbot = gr.ChatInterface(
         container=False,
         scale=7,
     ),
-    title="Eco‑Sage ESG Assistant",
+    title="Eco‑SaGe ESG Assistant",
     description=(
         "Answer ESG queries using a private knowledge base. "
         "When the question looks like a request for a summary, the system first "
@@ -265,4 +265,4 @@ chatbot = gr.ChatInterface(
 
 if __name__ == "__main__":
     # Use `share=True` if you want a public link (e.g. for a demo)
-    chatbot.launch()
+    chatbot.launch(share = True)
